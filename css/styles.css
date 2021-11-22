@@ -1,1 +1,120 @@
 /* developer styles go here */
+:root {
+    /*relative*/
+    --orange: #f07847;
+    --green: #199f6b;
+    --blue: #007ea7;
+    /** absolute **/
+    --purple: #8a61d3;
+    --pink: #ffc0cb;
+    --yellow: #f8c68b;
+    /** relative & absolute **/
+    --lt-blue: #5fb6e2;
+    --magenta: #f572a9;
+    --red: #b11e31;
+}
+
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #feebdd;
+}
+
+section {
+    margin: 3rem auto;
+    max-width: 43.75rem; /*700px*/
+    border: 1px solid #6e3d08;
+    padding: 1rem;
+}
+
+h2 {
+    margin: 1.5rem;
+}
+
+/** sizing the boxes **/
+.box {
+    width: 6.25rem; /*100px*/
+    height: 6.25rem; /*100px*/
+    border: 0.0625rem solid #111;
+}
+
+/** relative **/
+/** keeps all of your elements within the document follow **/
+
+.relative > .box.orange  {
+    background: var(--orange);
+    position: relative;
+    bottom: 3rem;
+}
+
+.relative > .box.green {
+    background-color: var(--green);
+    position: relative;
+    top: 2rem;
+    /** remove the spacing created by relative positioning (moving an element using relative positioning). Use a negative/positive margin **/
+    margin-top: -2rem; /** brings the element back up to the original space **/
+}
+
+.relative > .box.blue {
+    background-color: var(--blue);
+    position: relative;
+    left: 5rem;
+    z-index:-1;
+}
+
+/** absolute **/
+/** absolute removes the elements out the work flow. There default positioned state is no longer their original container the viewport itself. By default top, left corner **/ 
+
+.absolute > .box.purple { 
+    background-color: var(--purple);
+    position: absolute;
+    right: 50%;
+    bottom: 20%;
+}
+.absolute > .box.pink {
+    background-color: var(--pink);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.absolute > .box.yellow {
+    background-color: var(--yellow);
+}
+
+/** absolute positioned items within a relatively parent element */
+/** so when a parent element is positioned relatively, and the items within are positioned absolutely - that's means they cannot leave their container and stay in the document flow **/
+.relative2 {
+    position: relative;
+}
+.relative2 > .box.lt-blue {
+    background-color: var(--lt-blue);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.relative2 > .box.magenta {
+    background-color: var(--magenta);
+    position: absolute;
+    z-index: -1;
+    left: 4rem;
+}
+
+.relative2 > .box.red {
+    background-color: var(--red);
+    /* position: absolute; */
+}
+
+/** position fixed are similar to abosolutely  positioned elements as they no logner exist in the document flow **/
+.fixed > .box.lt-blue {
+    background-color: var(--lt-blue);
+}
+
+.fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    margin-bottom: 0;
+}
